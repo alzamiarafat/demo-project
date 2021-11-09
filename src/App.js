@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
+import React, { Component } from 'react';  
+class App extends Component{  
+   render(){
+      var myStyle = {  
+        fontSize: 80,  
+        fontFamily: 'Courier',  
+        color: '#003300'  
+      }  
+      return(  
+         <div>  
+             <p className="text-danger" style={myStyle}>Add = {15+20}</p>
+             <p className="text-info">Sub = {15-20}</p>
+             <p className="text-success">Div = {15/20}</p>
+             <p className="text-danger">Mul = {1*20}</p>
+         </div>  
+      );  
+   }  
+}  
+export default App;  
