@@ -10,32 +10,32 @@ class Navbar extends Component {
     render() {
         return (
             <div>
-                <nav class="navbar navbar-expand-lg navbar-light bg-success">
-                    <div class="container-fluid">
-                        <a class="navbar-brand" href="#">Navbar</a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
+                <nav className="navbar navbar-expand-lg navbar-light bg-success">
+                    <div className="container-fluid">
+                        <a className="navbar-brand" href="#">Navbar</a>
+                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"></span>
                         </button>
-                        <div class="collapse navbar-collapse" id="navbarNav">
+                        <div className="collapse navbar-collapse" id="navbarNav">
                             {/* <Router> */}
-                            <ul class="navbar-nav pull-right">
-                                <li class="nav-item">
+                            <ul className="navbar-nav pull-right">
+                                <li className="nav-item">
                                     <Router>
-                                        <Link exact to="/" class="nav-link">Home</Link>
+                                        <Link exact to="/" className="nav-link">Home</Link>
                                     </Router>
-                                    {/* <a class="nav-link active" aria-current="page" href="#">Home</a> */}
+                                    {/* <a className="nav-link active" aria-current="page" href="#">Home</a> */}
                                 </li>
-                                <li class="nav-item">
+                                <li className="nav-item">
                                     <Router>
-                                        <Link to="/login" class="nav-link">Login</Link>
+                                        <Link to="/login" className="nav-link">Login</Link>
                                     </Router>
-                                    {/* <a class="nav-link" href="#">Features</a> */}
+                                    {/* <a className="nav-link" href="#">Features</a> */}
                                 </li>
-                                <li class="nav-item">
+                                <li className="nav-item">
                                     <Router>
-                                        <Link to="/registration" class="nav-link">Registration</Link>
+                                        <Link to="/register" className="nav-link">Registration</Link>
                                     </Router>
-                                    {/* <a class="nav-link" href="#">Pricing</a> */}
+                                    {/* <a className="nav-link" href="#">Pricing</a> */}
                                 </li>
                             </ul>
                             {/* <Router>
