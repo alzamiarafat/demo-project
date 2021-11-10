@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Home from './components/layout/Home';
+// import Home from './components/Layout/fggg';
 class App extends Component {
   render() {
     return (
       <div>
-        <Home />
+        {/* <Home /> */}
       </div>
     );
   }
