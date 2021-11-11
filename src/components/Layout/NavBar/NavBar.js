@@ -15,7 +15,7 @@ const NavBar = () => {
           <div id="navbarNav">
             <ul className="navbar-nav pull-right">
               <li className="nav-item">
-                  <Link exact to="/home" className="nav-link">Home</Link>
+                  <Link exact to="/" className="nav-link">Home</Link>
                 {/* <a className="nav-link active" aria-current="page" href="#">Home</a> */}
               </li>
               <li className="nav-item">

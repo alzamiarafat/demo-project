@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Home } from './components/Layout/Home';
-import { Login } from './components/Login';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import Login from './components/Login';
+import Register from './components/Register';
+import { Route, Routes, BrowserRouter, Switch, Redirect } from 'react-router-dom';
 
 
 
@@ -10,27 +11,30 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 //         return (
 //             <div>
 //                 <Home />
-                
+
 //             </div>
 //         )
 //     }
 // }
 
-export const Routes = () => {
-    return (
-      <div>
-        {/* <Switch> */}
-          <Route exact path="/home">
-              <Home />
-              </Route>
-          {/* <Route exact path="/">
-            <Redirect to="/home" />
-          </Route> */}
-          {/* <Route exact path="/login" component={Login} /> */}
-        {/* </Switch> */}
-      </div>
-    );
-  };
+export const AllRoutes = () => {
+  return (
+    <div>
+      {/* <Routes>
+        <Route path="/" element={<Home />}>
+          <Route index element={<Home />} />
+          <Route path="login" element={<Login />} />
+        </Route>
+      </Routes> */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+
+    </div>
+  );
+};
 
 
 
