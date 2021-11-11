@@ -33,8 +33,8 @@ export class Login extends Component {
                                             <input type="checkbox" name="remember_me" id="remember_me" className="" />
                                             <label for="remember_me">Remember Me!</label>
                                         </div>
-
-                                        <input type="submit" value="Submit" className="btn login-btn" />
+                                        {/* <input type="submit" value="Submit" className="btn login-btn" /> */}
+                                        <Link to="/dashboard" className="btn login-btn">Submit</Link>
                                     </form>
                                 </div>
                                 <div className="row">

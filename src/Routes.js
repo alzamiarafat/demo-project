@@ -2,20 +2,8 @@ import React, { Component } from 'react';
 import { Home } from './components/Layout/Home';
 import Login from './components/Login';
 import Register from './components/Register';
+import Dashboard from './components/Dashboard/Dashboard';
 import { Route, Routes, BrowserRouter, Switch, Redirect } from 'react-router-dom';
-
-
-
-// export default class Routes extends Component {
-//     render() {
-//         return (
-//             <div>
-//                 <Home />
-
-//             </div>
-//         )
-//     }
-// }
 
 export const AllRoutes = () => {
   return (
@@ -30,6 +18,7 @@ export const AllRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
 
     </div>

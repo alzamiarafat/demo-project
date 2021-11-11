@@ -14,7 +14,6 @@ const Home = () => {
     return (
         <div>
             <NavBar />
-            
             <div className="container">
                 <p className="text-danger" style={myStyle}>Add = {15 + 20}</p>
                 <p className="text-info">Sub = {15 - 20}</p>
