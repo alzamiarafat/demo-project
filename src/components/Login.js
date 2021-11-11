@@ -1,64 +1,62 @@
-import React from 'react';
+import React, { Component } from 'react';
+import logo from '.././logo-1.png';
+import { Link } from "react-router-dom";
 
-const Login = () => {
 
-    return (
-        <div>
-            <section class="vh-100">
-                <div class="container py-5 h-100">
-                    <div class="row d-flex align-items-center justify-content-center h-100">
-                        <div class="col-md-8 col-lg-7 col-xl-6">
-                            <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/draw2.svg" class="img-fluid" alt="Phone image" />
+export class Login extends Component {
+    render() {
+        require('../style/Login.css')
+
+        return (
+            <div>
+                <div className="container-fluid">
+                    <div className="row main-content text-center">
+                        <div className="col-md-4 text-center company__info">
+                            <Link to="/">
+                                <img src={logo} className="company__logo" width="200" height="200" alt="logo" />
+                            </Link>
                         </div>
-                        <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-                            <form>
-                                <div class="form-outline mb-4">
-                                    <input type="email" id="form1Example13" class="form-control form-control-lg" />
-                                    <label class="form-label" for="form1Example13">Email address</label>
+                        <div className="col-md-8 col-xs-12 col-sm-12 login_form ">
+                            <div className="container-fluid">
+                                <div className="row mt-3">
+                                    <h2>Log In</h2>
                                 </div>
+                                <div className="row">
+                                    <form control="" className="form-group">
+                                        <div className="row">
+                                            <input type="text" name="username" id="username" className="form__input" placeholder="Username" />
+                                        </div>
+                                        <div className="row">
+                                            <input type="password" name="password" id="password" className="form__input" placeholder="Password" />
+                                        </div>
+                                        <div className="row">
+                                            <input type="checkbox" name="remember_me" id="remember_me" className="" />
+                                            <label for="remember_me">Remember Me!</label>
+                                        </div>
 
-
-                                <div class="form-outline mb-4">
-                                    <input type="password" id="form1Example23" class="form-control form-control-lg" />
-                                    <label class="form-label" for="form1Example23">Password</label>
+                                        <input type="submit" value="Submit" className="btn login-btn" />
+                                    </form>
                                 </div>
-
-                                <div class="d-flex justify-content-around align-items-center mb-4">
-
-                                    <div class="form-check">
-                                        <input
-                                            class="form-check-input"
-                                            type="checkbox"
-                                            value=""
-                                            id="form1Example3"
-                                            checked
-                                        />
-                                        <label class="form-check-label" for="form1Example3"> Remember me </label>
+                                <div className="row">
+                                    <p>Don't have an account? <Link to="/register">Register Here</Link></p>
+                                </div>
+                                <div className="social-media">
+                                    <h5>Sign up with social media</h5>
+                                    <div className="social-icons">
+                                        <a href="#"><i className="fab fa-facebook-f" title="Facebook"></i></a>
+                                        <a href="#"><i className="fab fa-google" title="Google"></i></a>
+                                        <a href="#"><i className="fab fa-twitter" title="Twitter"></i></a>
                                     </div>
-                                    <a href="#!">Forgot password?</a>
                                 </div>
+                            </div>
 
-                                <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
-
-                                <div class="divider d-flex align-items-center my-4">
-                                    <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
-                                </div>
-
-                                <a class="btn btn-primary btn-lg btn-block" href="#!" role="button">
-                                    <i class="fab fa-facebook-f me-2"></i>Login with Google
-                                </a>
-                                &nbsp;
-                                &nbsp;
-                                <a class="btn btn-primary btn-lg btn-block" href="#!" role="button">
-                                    <i class="fab fa-twitter me-2"></i>Login with Facebook</a>
-
-                            </form>
                         </div>
                     </div>
-                </div>
-            </section>
-        </div>
-    );
-};
 
-export default Login;
+                </div>
+            </div>
+        )
+    }
+}
+
+export default Login

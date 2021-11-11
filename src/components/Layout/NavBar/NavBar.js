@@ -6,24 +6,22 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 const NavBar = () => {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-success">
+      <nav className="navbar navbar-expand-lg navbar-light" style={{ backgroundColor: "rgb(11 90 74)" }}>
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">Navbar</a>
+          <a className="navbar-brand text-white" href="#"><h4>Navbar</h4></a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div id="navbarNav">
             <ul className="navbar-nav pull-right">
               <li className="nav-item">
-                  <Link exact to="/" className="nav-link">Home</Link>
-                {/* <a className="nav-link active" aria-current="page" href="#">Home</a> */}
+                <Link exact to="/" className="nav-link text-white">Home</Link>
               </li>
               <li className="nav-item">
-                  <Link to="/login" className="nav-link">Login</Link>
-                {/* <a className="nav-link" href="#">Features</a> */}
+                <Link to="/login" className="nav-link text-white">Login</Link>
               </li>
               <li className="nav-item">
-                  <Link to="/register" className="nav-link">Registration</Link>
+                <Link to="/register" className="nav-link text-white">Registration</Link>
               </li>
             </ul>
           </div>
