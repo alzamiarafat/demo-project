@@ -29,9 +29,11 @@ export class Login extends Component {
                                         <div className="row">
                                             <input type="password" name="password" id="password" className="form__input" placeholder="Password" />
                                         </div>
-                                        <div className="row">
-                                            <input type="checkbox" name="remember_me" id="remember_me" className="" />
-                                            <label for="remember_me">Remember Me!</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                Default checkbox
+                                            </label>
                                         </div>
                                         {/* <input type="submit" value="Submit" className="btn login-btn" /> */}
                                         <Link to="/dashboard" className="btn login-btn">Submit</Link>
@@ -40,7 +42,7 @@ export class Login extends Component {
                                 <div className="row">
                                     <p>Don't have an account? <Link to="/register">Register Here</Link></p>
                                 </div>
-                                <div className="social-media">
+                                <div>
                                     <h5>Sign up with social media</h5>
                                     <div className="social-icons">
                                         <a href="#"><i className="fab fa-facebook-f" title="Facebook"></i></a>
