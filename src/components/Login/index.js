@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import logo from '.././logo-1.png';
+import logo from '../../logo-1.png';
 import { Link } from "react-router-dom";
 
 
 export class Login extends Component {
     render() {
-        require('../style/Login.css')
+        require('./Login.css')
 
         return (
             <div>
@@ -29,10 +29,10 @@ export class Login extends Component {
                                         <div className="row">
                                             <input type="password" name="password" id="password" className="form__input" placeholder="Password" />
                                         </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                            <label class="form-check-label" for="flexCheckDefault">
-                                                Default checkbox
+                                        <div>
+                                            <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                            <label className="form-check-label" htmlFor="flexCheckDefault">
+                                                Remember me
                                             </label>
                                         </div>
                                         {/* <input type="submit" value="Submit" className="btn login-btn" /> */}

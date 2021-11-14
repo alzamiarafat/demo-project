@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 
-
 export class Register extends Component {
     render() {
-        require('../style/Register.css')
+        require('./Register.css')
         return (
             <div className="reg-bg">
                 <div className="registration-form">
@@ -46,6 +45,5 @@ export class Register extends Component {
         )
     }
 }
-
 
 export default Register
