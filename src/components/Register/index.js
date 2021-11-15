@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import { useAuth } from '../../contexts/Auth';
+require('./Register.css')
+
 
 export class Register extends Component {
     render() {
-        require('./Register.css')
+        const { signUp } = useAuth();
         return (
             <div className="reg-bg">
                 <div className="registration-form">
