@@ -1,16 +1,37 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SideBar from '../Layout/SideBar/SideBar';
+import swal from 'sweetalert';
 import axios from "axios";
 
 function UserList() {
     const [APIData, setAPIData] = useState([]);
+
     useEffect(() => {
-        axios.get(`https://6190abddf6bf450017484c7d.mockapi.io/fakeData`)
-            .then((response) => {
-                setAPIData(response.data);
-            })
-    }, [])
+        axios.get(`https://6190abddf6bf450017484c7d.mockapi.io/fakeData`).then((response) => {
+            setAPIData(response.data);
+        })
+    }, []);
+
+    const onDelete = (id) => {
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        }).then((willDelete) => {
+            axios.delete(`https://6190abddf6bf450017484c7d.mockapi.io/fakeData/${id}`)
+            if (willDelete) {
+                swal("User has been deleted successfully!", {
+                    icon: "success",
+                }).then(() => {
+                    window.location.reload(true);
+                });
+            }
+        });
+    }
+
     return (
         <div className="container-fluid">
             <div className="row flex-nowrap">
@@ -25,7 +46,6 @@ function UserList() {
                                 </div>
                             </div>
                             <div className="row">
-
                                 <div className="col-12">
                                     <table className="table table-bordered mt-4">
                                         <thead>
@@ -39,22 +59,20 @@ function UserList() {
                                         <tbody>
                                             {APIData.map((user, index) => (
                                                 <tr className="text-center" key={user.id}>
-                                                    <td>{index+1}</td>
+                                                    <td>{index + 1}</td>
                                                     <td>{user.username}</td>
                                                     <td>{user.email}</td>
                                                     <td>
                                                         <Link to={user.id} className="btn btn-outline-warning"><i className="fas fa-eye"></i></Link> &nbsp;
                                                         <Link to={user.id} className="btn btn-outline-success"><i className="fas fa-edit"></i></Link>  &nbsp;
-                                                        <Link to={user.id} className="btn btn-outline-danger"><i className="fas fa-trash"></i></Link>
+                                                        <button className="btn btn-outline-danger" onClick={() => { onDelete(user.id) }}><i className="fas fa-trash"></i></button>
                                                     </td>
                                                 </tr>
                                             ))}
                                         </tbody>
                                     </table>
                                 </div>
-
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -65,38 +83,3 @@ function UserList() {
 }
 
 export default UserList
-
-
-// function Users() {
-//     const [APIData, setAPIData] = useState([]);
-//     useEffect(() => {
-//         axios.get(`https://6190abddf6bf450017484c7d.mockapi.io/fakeData`)
-//             .then((response) => {
-//                 console.log(response.data)
-//                 setAPIData(response.data);
-//             })
-//     }, [])
-// }
-
-
-// const [APIData, setAPIData] = useState([]);
-// useEffect(() => {
-//     axios.get(`https://6190abddf6bf450017484c7d.mockapi.io/fakeData`)
-//         .then((response) => {
-//             console.log(response.data)
-//             // setAPIData(response.data);
-//         })
-// }, [])
-
-// export class UserList extends Component {
-//     // constructor(props) {
-//     //     super(props)
-//     // };
-//     render() {
-
-//     }
-// }
-
-
-
-// export default UserList

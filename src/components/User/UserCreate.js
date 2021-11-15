@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import SideBar from "../Layout/SideBar/SideBar";
 import axios from "axios";
 import swal from 'sweetalert';
@@ -50,6 +50,5 @@ function UserCreate() {
         })
     }
 }
-
 
 export default UserCreate
