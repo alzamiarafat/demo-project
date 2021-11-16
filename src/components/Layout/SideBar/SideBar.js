@@ -11,7 +11,7 @@ export class SideBar extends Component {
                     </a>
                     <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                         <li className="nav-item">
-                            <Link to="/" className="nav-link align-middle px-0"><i className="fas fa-home"></i> <span className="ms-1 d-none d-sm-inline">Home</span></Link>
+                            <Link to="/"  target="_blank" className="nav-link align-middle px-0"><i className="fas fa-home"></i> <span className="ms-1 d-none d-sm-inline">Home</span></Link>
                         </li>
                         <li>
                             <a href="/dashboard" data-bs-toggle="collapse" className="nav-link px-0 align-middle">

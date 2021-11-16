@@ -7,14 +7,10 @@ const Home = () => {
         position: "relative",
         minHeight: "100vh"
     }
-    var containStyle = {
-        paddingBottom: "2.5rem"    /* Footer height */
-
-    }
     return (
         <div style={mainStyle}>
             <NavBar />
-            <div className="container-fluid container" style={containStyle}>
+            <div className="container-fluid container pb-5">
                 <div className="row flex-nowrap">
                     <div className="col py-3">
                         <h3>Welcome Home</h3>
