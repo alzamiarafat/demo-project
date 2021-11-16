@@ -7,6 +7,7 @@ import { Route, Routes } from 'react-router-dom';
 import Test from './test';
 import UserList from './components/User/UserList';
 import UserCreate from './components/User/UserCreate';
+import { Auth } from './contexts/Auth';
 
 export const AllRoutes = () => {
   return (
@@ -17,15 +18,18 @@ export const AllRoutes = () => {
           <Route path="login" element={<Login />} />
         </Route>
       </Routes> */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/users" element={<UserList />}/>
-        <Route path="/users/create" element={<UserCreate />} />
-        <Route path="/test" element={<Test />} />
-      </Routes>
+      <Auth>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/users" element={<UserList />} />
+          <Route path="/users/create" element={<UserCreate />} />
+          <Route path="/test" element={<Test />} />
+        </Routes>
+      </Auth>
+
 
     </div>
   );

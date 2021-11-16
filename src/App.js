@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 // import Home from './components/Layout/fggg';
+import { Auth } from './contexts/Auth';
 class App extends Component {
   render() {
     return (

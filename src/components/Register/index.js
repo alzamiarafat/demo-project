@@ -5,7 +5,17 @@ import './Register.css';
 // require('./Register.css');
 
 function Register() {
-    // const { signUp } = useAuth();
+    const { signUp } = useAuth();
+
+    function formSubmit(event) {
+        event.preventDefault();
+        const data = new FormData(event.target);
+        const email = data.get('email');
+        const password = data.get('password');
+        
+        
+        signUp(email,password)
+    }
 
     return (
         <div className="reg-bg">
