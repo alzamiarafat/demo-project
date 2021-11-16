@@ -2,8 +2,15 @@ import React from 'react';
 
 
 const Footer = () => {
+    
+    var footerStyle = {
+        position: "absolute",
+        bottom: 0,
+        width: "100%",
+        height: "2.5rem",            /* Footer height */
+    }
     return (
-        <div className="my-5 mb-0">
+        <div style={footerStyle}>
             <footer
                 className="text-center text-lg-start text-white"
                 style={{ backgroundColor: "rgb(11 90 74)" }}
