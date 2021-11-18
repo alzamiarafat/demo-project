@@ -1,4 +1,3 @@
-import React, { Component } from 'react'
 import { useAuth } from '../../contexts/Auth';
 import SlideBar from '../Layout/SideBar/SideBar';
 import { useNavigate } from "react-router-dom";
@@ -10,10 +9,10 @@ function Dashboard() {
     const { logout } = useAuth();
     const history = useNavigate();
 
-    function signOut(event) {
-        logout().then(()=> history('/login'));
-        
+    function signOut() {
+        logout().then(() => history('/login'));
     }
+
     return (
         <div className="container-fluid">
             <div class="row bg-dark py-1 mt-auto">
@@ -30,10 +29,8 @@ function Dashboard() {
                         An example 2-level sidebar with collasible menu items. The menu functions like an "accordion" where only a single
                         menu is be open at a time. While the sidebar itself is not toggle-able, it does responsively shrink in width on smaller screens.</p>
                 </div>
-
             </div>
         </div>
-
     )
 }
 

@@ -1,10 +1,11 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from '../../contexts/Auth';
 import './Register.css';
 // require('./Register.css');
 
 function Register() {
+    const history = useNavigate();
     const { signUp } = useAuth();
 
     function formSubmit(event) {
@@ -14,9 +15,10 @@ function Register() {
         const password = data.get('password');
 
         if (data.get('password') === data.get('confirm_password')) {
-            alert("submitted");
-            console.log(email, password)
-            signUp(email,password).then((response) => {alert(response)}).catch((error)=> alert(error.message))
+            signUp(email,password).then(() => {
+                alert("User has been created!");
+                history('/dashboard');
+            }).catch((error)=> alert(error.message))
         } else alert('not submitted')
     }
 

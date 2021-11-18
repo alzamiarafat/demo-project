@@ -6,7 +6,8 @@ import { useAuth } from '../../contexts/Auth';
 function Login() {
     const history = useNavigate();
     require('./Login.css');
-    const { login } = useAuth();
+    const { login, signInGoogle, signInFB } = useAuth();
+
     function formSubmit(event) {
         event.preventDefault();
         const data = new FormData(event.target);
@@ -14,6 +15,10 @@ function Login() {
         const password = data.get('password');
 
         login(email, password).then(() => history('/dashboard')).catch((error) => alert(error.message))
+    }
+
+    function loginWithGoogle() {
+        signInGoogle().then(() => history('/dashboard')).catch((error) => alert(error.message))
     }
 
     return (
@@ -54,8 +59,8 @@ function Login() {
                             <div>
                                 <h5>Sign up with social media</h5>
                                 <div className="social-icons">
-                                    <a href="#"><i className="fab fa-facebook-f" title="Facebook"></i></a>
-                                    <a href="#"><i className="fab fa-google" title="Google"></i></a>
+                                    <a href="#" onClick={signInFB}><i className="fab fa-facebook-f" title="Facebook"></i></a>
+                                    <a href="#" onClick={loginWithGoogle}><i className="fab fa-google" title="Google"></i></a>
                                     <a href="#"><i className="fab fa-twitter" title="Twitter"></i></a>
                                 </div>
                             </div>
