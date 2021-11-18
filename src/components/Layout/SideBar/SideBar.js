@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export class SideBar extends Component {
     render() {
@@ -11,14 +11,14 @@ export class SideBar extends Component {
                     </a>
                     <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                         <li className="nav-item">
-                            <Link to="/"  target="_blank" className="nav-link align-middle px-0"><i className="fas fa-home"></i> <span className="ms-1 d-none d-sm-inline">Home</span></Link>
+                            <NavLink to="/"  target="_blank" className="nav-link align-middle px-0"><i className="fas fa-home"></i> <span className="ms-1 d-none d-sm-inline">Home</span></NavLink>
                         </li>
                         <li>
-                            <a href="/dashboard" data-bs-toggle="collapse" className="nav-link px-0 align-middle active">
-                                <i className="fas fa-tachometer"></i> <span className="ms-1 d-none d-sm-inline">Dashboard</span> </a>
+                            <NavLink to="/dashboard" data-bs-toggle="collapse" className="nav-link px-0 align-middle">
+                                <i className="fas fa-tachometer"></i> <span className="ms-1 d-none d-sm-inline">Dashboard</span> </NavLink>
                         </li>
                         <li className="nav-item">
-                            <Link to="/users" className="nav-link align-middle px-0"><i className="fas fa-users"></i> <span className="ms-1 d-none d-sm-inline">Users</span></Link>
+                            <NavLink to="/users" className="nav-link align-middle px-0"><i className="fas fa-users"></i> <span className="ms-1 d-none d-sm-inline">Users</span></NavLink>
                         </li>
                         <li className="nav-item">
                             <Link to="/test" className="nav-link align-middle px-0"><i className="fas fa-certificate"></i> <span className="ms-1 d-none d-sm-inline">Test Item</span></Link>
