@@ -16,14 +16,8 @@ function Register() {
         if (data.get('password') === data.get('confirm_password')) {
             alert("submitted");
             console.log(email, password)
-            signUp(email,password)
-
-
+            signUp(email,password).then((response) => {alert(response)}).catch((error)=> alert(error.message))
         } else alert('not submitted')
-
-        // console.log(password);
-
-
     }
 
     return (

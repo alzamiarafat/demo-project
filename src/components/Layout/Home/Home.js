@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavBar } from '../NavBar';
 import { Footer } from '../Footer';
+import { useAuth } from '../../../contexts/Auth';
+
 
 const Home = ({currentUser}) => {
     var mainStyle = {
