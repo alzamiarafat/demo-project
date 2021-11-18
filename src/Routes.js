@@ -7,9 +7,13 @@ import { Route, Routes } from 'react-router-dom';
 import Test from './test';
 import UserList from './components/User/UserList';
 import UserCreate from './components/User/UserCreate';
-import { Auth } from './contexts/Auth';
+import AuthContextProvider, { useAuth } from './contexts/Auth';
 
+// import List from './components/Test/list';
+import Rt from './components/Test/route';
 export const AllRoutes = () => {
+  const { currentUser } = useAuth();
+
   return (
     <div>
       {/* <Routes>
@@ -18,19 +22,18 @@ export const AllRoutes = () => {
           <Route path="login" element={<Login />} />
         </Route>
       </Routes> */}
-      <Auth>
+      <AuthContextProvider>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home currentUser={currentUser} />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/users" element={<UserList />} />
+          <Route path="/users*" element={<UserList />} />
           <Route path="/users/create" element={<UserCreate />} />
-          <Route path="/test" element={<Test />} />
+          {/* <Route path="/test" element={<Test />} /> */}
+          <Route path="/test*" element={<Rt />} />
         </Routes>
-      </Auth>
-
-
+      </AuthContextProvider>
     </div>
   );
 };

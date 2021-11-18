@@ -15,7 +15,7 @@ const NavBar = () => {
           <div id="navbarNav">
             <ul className="navbar-nav pull-right">
               <li className="nav-item">
-                <Link exact to="/" className="nav-link text-white">Home</Link>
+                <Link to="/" className="nav-link text-white">Home</Link>
               </li>
               <li className="nav-item">
                 <Link to="/login" className="nav-link text-white">Login</Link>

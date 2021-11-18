@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from "react-router-dom";
 import { useAuth } from '../../contexts/Auth';
 import './Register.css';
@@ -12,35 +12,44 @@ function Register() {
         const data = new FormData(event.target);
         const email = data.get('email');
         const password = data.get('password');
-        
-        
-        signUp(email,password)
+
+        if (data.get('password') === data.get('confirm_password')) {
+            alert("submitted");
+            console.log(email, password)
+            signUp(email,password)
+
+
+        } else alert('not submitted')
+
+        // console.log(password);
+
+
     }
 
     return (
         <div className="reg-bg">
             <div className="registration-form">
-                <form>
+                <form onSubmit={formSubmit}>
                     <div className="form-icon">
                         <span><i className="fas fa-user-plus"></i></span>
                     </div>
                     <div className="form-group">
-                        <input type="text" className="form-control item" id="username" placeholder="Username" />
+                        <input type="text" className="form-control item" name="username" placeholder="Username" />
                     </div>
                     <div className="form-group">
-                        <input type="password" className="form-control item" id="password" placeholder="Password" />
+                        <input type="text" className="form-control item" name="email" placeholder="Email" />
                     </div>
                     <div className="form-group">
-                        <input type="text" className="form-control item" id="email" placeholder="Email" />
+                        <input type="text" className="form-control item" name="phone-number" placeholder="Phone Number" />
                     </div>
                     <div className="form-group">
-                        <input type="text" className="form-control item" id="phone-number" placeholder="Phone Number" />
+                        <input type="password" className="form-control item" name="password" placeholder="Password" />
                     </div>
                     <div className="form-group">
-                        <input type="text" className="form-control item" id="birth-date" placeholder="Birth Date" />
+                        <input type="password" className="form-control item" name="confirm_password" placeholder="Confirm Password" />
                     </div>
                     <div className="form-group">
-                        <button type="button" className="btn btn-block create-account">Create Account</button>
+                        <button type="submit" className="btn btn-block create-account">Create Account</button>
                     </div>
                     <p href="#" className="mb-0 pull-right">Already have an account? <Link to="/login">Login</Link></p>
                 </form>

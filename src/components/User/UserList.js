@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SideBar from '../Layout/SideBar/SideBar';
+import Loader from '../Layout/Loader';
 import swal from 'sweetalert';
 import axios from "axios";
 
 function UserList() {
     const [APIData, setAPIData] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         axios.get(`https://6190abddf6bf450017484c7d.mockapi.io/fakeData`).then((response) => {
             setAPIData(response.data);
+            setLoading(false);
         })
     }, []);
 
@@ -47,7 +50,7 @@ function UserList() {
                             </div>
                             <div className="row">
                                 <div className="col-12">
-                                    <table className="table table-bordered mt-4">
+                                    <table className="table table-bordered mt-4 position-relative">
                                         <thead>
                                             <tr className="text-center">
                                                 <th>SL</th>
@@ -57,18 +60,21 @@ function UserList() {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {APIData.map((user, index) => (
-                                                <tr className="text-center" key={user.id}>
-                                                    <td>{index + 1}</td>
-                                                    <td>{user.username}</td>
-                                                    <td>{user.email}</td>
-                                                    <td>
-                                                        <Link to={user.id} className="btn btn-outline-warning"><i className="fas fa-eye"></i></Link> &nbsp;
-                                                        <Link to={user.id} className="btn btn-outline-success"><i className="fas fa-edit"></i></Link>  &nbsp;
-                                                        <button className="btn btn-outline-danger" onClick={() => { onDelete(user.id) }}><i className="fas fa-trash"></i></button>
-                                                    </td>
-                                                </tr>
-                                            ))}
+                                            {
+                                                !loading ? APIData.map(
+                                                    (user, index) => (
+                                                        <tr className="text-center" key={user.id}>
+                                                            <td>{index + 1}</td>
+                                                            <td>{user.username}</td>
+                                                            <td>{user.email}</td>
+                                                            <td>
+                                                                <Link to={user.id} className="btn btn-outline-warning"><i className="fas fa-eye"></i></Link> &nbsp;
+                                                                <Link to={user.id} className="btn btn-outline-success"><i className="fas fa-edit"></i></Link>  &nbsp;
+                                                                <button className="btn btn-outline-danger" onClick={() => { onDelete(user.id) }}><i className="fas fa-trash"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                    )) : <Loader />
+                                            }
                                         </tbody>
                                     </table>
                                 </div>
