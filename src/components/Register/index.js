@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from '../../contexts/Auth';
+import { auth } from '../../firebase-config';
+import { updateProfile } from '@firebase/auth';
+
 import './Register.css';
 // require('./Register.css');
 
@@ -13,12 +16,15 @@ function Register() {
         const data = new FormData(event.target);
         const email = data.get('email');
         const password = data.get('password');
+        const username = data.get('username');
 
         if (data.get('password') === data.get('confirm_password')) {
-            signUp(email,password).then(() => {
+            signUp(email, password).then(() => {
                 alert("User has been created!");
-                history('/dashboard');
-            }).catch((error)=> alert(error.message))
+                updateProfile(auth.currentUser, {
+                    displayName: username,
+                }).then(() => history('/dashboard')).catch((error)=>alert(error.message))
+            }).catch((error) => alert(error.message))
         } else alert('not submitted')
     }
 
@@ -36,7 +42,7 @@ function Register() {
                         <input type="text" className="form-control item" name="email" placeholder="Email" />
                     </div>
                     <div className="form-group">
-                        <input type="text" className="form-control item" name="phone-number" placeholder="Phone Number" />
+                        <input type="text" className="form-control item" name="phone_number" placeholder="Phone Number" />
                     </div>
                     <div className="form-group">
                         <input type="password" className="form-control item" name="password" placeholder="Password" />

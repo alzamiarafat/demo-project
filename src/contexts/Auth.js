@@ -7,7 +7,7 @@ import {
     signOut,
     GoogleAuthProvider,
     signInWithPopup,
-    FacebookAuthProvider
+    FacebookAuthProvider,
 } from '@firebase/auth';
 
 const AuthContext = createContext({
@@ -27,11 +27,11 @@ export default function AuthContextProvider({ children }) {
     const [currentUser, setCurrentUser] = useState(null);
 
     useEffect(() => {
-        const unAthenticUser = onAuthStateChanged(auth, user => {
-            setCurrentUser(user);
+        const unsubscribe = onAuthStateChanged(auth, user => {
+            setCurrentUser(user ? user : null);
         })
         return () => {
-            unAthenticUser();
+            unsubscribe();
         }
     }, []);
 
