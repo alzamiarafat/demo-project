@@ -1,9 +1,15 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
+import { useAuth } from '../../../contexts/Auth';
 
 const NavBar = () => {
+
+  const { currentUser, logout } = useAuth();
+
+  function signOut() {
+    logout();
+  }
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light" style={{ backgroundColor: "rgb(11 90 74)" }}>
@@ -17,12 +23,21 @@ const NavBar = () => {
               <li className="nav-item">
                 <Link to="/" className="nav-link text-white">Home</Link>
               </li>
-              <li className="nav-item">
+              {currentUser && <li className="nav-item">
+                <Link to="/dashboard" className="nav-link text-white">Profile</Link>
+              </li>}
+
+              {currentUser && <li className="nav-item">
+                <a href="#" className="nav-link text-white" onClick={signOut}>Logout</a>
+              </li>}
+
+              {!currentUser && <li className="nav-item">
                 <Link to="/login" className="nav-link text-white">Login</Link>
-              </li>
-              <li className="nav-item">
+              </li>}
+
+              {!currentUser && <li className="nav-item">
                 <Link to="/register" className="nav-link text-white">Registration</Link>
-              </li>
+              </li>}
             </ul>
           </div>
         </div>
