@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-// import Home from './components/Layout/fggg';
-import { Auth } from './contexts/Auth';
+import AuthContextProvider from './contexts/Auth';
+import { AllRoutes } from './Routes';
 class App extends Component {
   render() {
     return (
-      <div>
-        {/* <Home /> */}
-      </div>
+      <>
+        <AuthContextProvider>
+          <AllRoutes />
+        </AuthContextProvider>
+      </>
     );
   }
 }

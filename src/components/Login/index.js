@@ -1,10 +1,12 @@
 import React from 'react';
 import logo from '../../logo-1.png';
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from '../../contexts/Auth';
 
 function Login() {
     const history = useNavigate();
+    const location = useLocation();
+    console.log(location);
     require('./Login.css');
     const { login, signInGoogle, signInFB } = useAuth();
 
@@ -14,15 +16,16 @@ function Login() {
         const email = data.get('email');
         const password = data.get('password');
 
-        login(email, password).then(() => history('/dashboard')).catch((error) => alert(error.message))
+        login(email, password).then(() => history(location.state?.form ?? '/dashboard')).catch((error) => alert(error.message))
     }
 
     function loginWithGoogle() {
-        signInGoogle().then(() => history('/dashboard')).catch((error) => alert(error.message))
+        signInGoogle().then(() => history(location.state?.form ?? '/dashboard')).catch((error) => alert(error.message))
     }
 
     return (
-        <div>
+        <>
+        
             <div className="container-fluid">
                 <div className="row main-content text-center">
                     <div className="col-md-4 text-center company__info">
@@ -68,9 +71,8 @@ function Login() {
 
                     </div>
                 </div>
-
             </div>
-        </div>
+        </>
     )
 }
 

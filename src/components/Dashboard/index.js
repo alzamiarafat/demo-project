@@ -2,8 +2,6 @@ import { useAuth } from '../../contexts/Auth';
 import SlideBar from '../Layout/SideBar/SideBar';
 import { useNavigate } from "react-router-dom";
 
-
-
 function Dashboard() {
 
     const { logout } = useAuth();
