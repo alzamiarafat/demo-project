@@ -11,7 +11,8 @@ const NavBar = () => {
   }
 
   return (
-    <div>
+
+    <>
       <nav className="navbar navbar-expand-lg navbar-light" style={{ backgroundColor: "rgb(11 90 74)" }}>
         <div className="container-fluid">
           <a className="navbar-brand text-white" href="#"><h4>Navbar</h4></a>
@@ -42,7 +43,7 @@ const NavBar = () => {
           </div>
         </div>
       </nav>
-    </div>
+    </>
   );
 };
 

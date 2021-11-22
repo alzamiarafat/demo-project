@@ -4,19 +4,21 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from '../../contexts/Auth';
 
 function Login() {
+
     const history = useNavigate();
     const location = useLocation();
-    console.log(location);
+    console.log(location.pathname);
     require('./Login.css');
     const { login, signInGoogle, signInFB } = useAuth();
 
     function formSubmit(event) {
+
         event.preventDefault();
         const data = new FormData(event.target);
         const email = data.get('email');
         const password = data.get('password');
 
-        login(email, password).then(() => history(location.state?.form ?? '/dashboard')).catch((error) => alert(error.message))
+        login(email, password).then(() => history(location.state.form)).catch((error) => alert(error.message))
     }
 
     function loginWithGoogle() {
@@ -53,7 +55,6 @@ function Login() {
                                         </label>
                                     </div>
                                     <input type="submit" value="Submit" className="btn login-btn" />
-                                    {/* <Link to="/dashboard" className="btn login-btn">Submit</Link> */}
                                 </form>
                             </div>
                             <div className="row">
@@ -68,7 +69,6 @@ function Login() {
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

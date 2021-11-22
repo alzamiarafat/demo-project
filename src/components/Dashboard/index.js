@@ -13,8 +13,8 @@ function Dashboard() {
 
     return (
         <div className="container-fluid">
-            <div class="row bg-dark py-1 mt-auto">
-                <div class="col-12 text-end">
+            <div className="row bg-dark py-1 mt-auto">
+                <div className="col-12 text-end">
                     <button className="d-inline btn btn-outline-danger" onClick={signOut}><i class="fas fa-power-off"></i></button>
                 </div>
             </div>
