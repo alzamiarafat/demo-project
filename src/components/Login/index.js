@@ -2,6 +2,11 @@ import React from 'react';
 import logo from '../../logo-1.png';
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from '../../contexts/Auth';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import TextField from '@mui/material/TextField';
+
+
 
 function Login() {
 
@@ -27,7 +32,12 @@ function Login() {
 
     return (
         <>
-        
+            {/* <div style={{ background: "red", width: "100%", height: "100%" }}>
+                dfsdf
+            </div> */}
+
+
+
             <div className="container-fluid">
                 <div className="row main-content text-center">
                     <div className="col-md-4 text-center company__info">

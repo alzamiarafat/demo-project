@@ -1,18 +1,21 @@
 import React from 'react';
 import { Link, NavLink } from "react-router-dom";
-import { useAuth } from '../../../contexts/Auth';
-
+// import { useAuth } from '../../../contexts/Auth';
+import useStyles from './Style';
 
 
 const SideBar = () => {
 
-    const { currentUser } = useAuth();
-    const name = currentUser ? JSON.stringify(currentUser.displayName) : null;
+    // const { currentUser } = useAuth();
+    // const name = currentUser ? JSON.stringify(currentUser.displayName) : null;
+    const classes = useStyles();
 
 
     return (
         <>
-           
+            <div className={classes.sideBar}>
+                <h3>Menu</h3>
+            </div>
         </>
         // <div className="col-auto col-md-3 col-xl-2 px-sm-2 bg-dark">
         //     <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">

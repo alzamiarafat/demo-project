@@ -2,6 +2,8 @@ import React from 'react';
 import { NavBar } from '../NavBar';
 import { Footer } from '../Footer';
 import { useAuth } from '../../../contexts/Auth';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 const Home = () => {
@@ -12,6 +14,7 @@ const Home = () => {
         position: "relative",
         minHeight: "90vh"
     }
+
     return (
         <div style={mainStyle}>
             <NavBar />
