@@ -3,12 +3,16 @@ import { useAuth } from '../../contexts/Auth';
 import SideBar from './Layout/SideBar/index';
 import Header from './Layout/Header/index'
 import { useNavigate } from "react-router-dom";
+import { createTheme, ThemeProvider, CssBaseline } from '@material-ui/core';
+import Body from './Layout/Body/index'
+import useStyles, { theme } from './style';
 
-// import useStyles from './style';
+
 
 function Dashboard() {
 
     const { logout } = useAuth();
+    const classes = useStyles();
     const history = useNavigate();
 
     function signOut() {
@@ -16,13 +20,17 @@ function Dashboard() {
     }
 
     return (
-        <>
+        <ThemeProvider theme={theme}>
             <SideBar />
-            <Header />
+            <div className={classes.contain}>
+                <Header />
+                <Body />
+            </div>
+            <CssBaseline />
             {/* <div className={classes.contain}>
                 <h4>page header</h4>
             </div> */}
-        </>
+        </ThemeProvider>
         // <div className="container-fluid">
         //     <div className="row bg-dark py-1 mt-auto">
         //         <div className="col-12 text-end">

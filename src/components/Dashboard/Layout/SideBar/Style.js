@@ -1,15 +1,16 @@
 import { makeStyles } from '@material-ui/styles';
+import { color } from '@mui/system';
 
 const useStyles = makeStyles({
     sideBar: {
         display: "flex",
-        background: "skyblue", 
+        background: "gray", 
         width: "250px", 
         height: "100%", 
         position: "absolute", 
         textAlign: "center", 
         flexDirection: "column", 
-        left: "0px"
+        left: "0px",
     },
     contain: {
         paddingLeft: "250px",
