@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import AuthContextProvider from './contexts/Auth';
 import { AllRoutes } from './Routes';
 import "antd/dist/antd.css";
-class App extends Component {
-  render() {
+function App () {
+    
     return (
       <>
         <AuthContextProvider>
@@ -11,7 +11,6 @@ class App extends Component {
         </AuthContextProvider>
       </>
     );
-  }
 }
 // App.defaultProps = {  
 //   age: "John"  

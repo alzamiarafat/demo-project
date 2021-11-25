@@ -2,7 +2,7 @@ import { useAuth } from '../../contexts/Auth';
 // import SlideBar from '../Layout/SideBar/SideBar';
 import SideBar from './Layout/SideBar/index';
 import Header from './Layout/Header/index'
-import { useNavigate, Outlet, useLocation } from "react-router-dom";
+import { useNavigate, Outlet, useLocation, Navigate } from "react-router-dom";
 import { createTheme, ThemeProvider, CssBaseline } from '@material-ui/core';
 import Body from './Layout/Body/index'
 import useStyles, { theme } from './style';
@@ -21,17 +21,21 @@ const Dashboard = () => {
     }
 
     return (
-        <ThemeProvider theme={theme}>
-            <SideBar />
-            <div className={classes.contain}>
-                <Header />
-                {location.pathname === `/dashboard/${currentUser.uid}` ? <Body /> : <Outlet />}
-            </div>
-            <CssBaseline />
-            {/* <div className={classes.contain}>
+        <>
+            <ThemeProvider theme={theme}>
+                <SideBar />
+                <div className={classes.contain}>
+                    <Header />
+                    {location.pathname === `/dashboard/${currentUser.uid}` ? <Body /> : <Outlet />}
+                </div>
+                <CssBaseline />
+                {/* <div className={classes.contain}>
                 <h4>page header</h4>
             </div> */}
-        </ThemeProvider>
+            </ThemeProvider>
+
+        </>
+
         // <div className="container-fluid">
         //     <div className="row bg-dark py-1 mt-auto">
         //         <div className="col-12 text-end">

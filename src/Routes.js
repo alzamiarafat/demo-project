@@ -3,7 +3,7 @@ import { Home } from './components/Layout/Home';
 import Login from './components/Login/index';
 import Register from './components/Register/index';
 import Dashboard from './components/Dashboard/index';
-import { Route, Routes, Navigate, useLocation, useRoutes, Outlet } from 'react-router-dom';
+import { Route, Routes, Navigate, useRoutes } from 'react-router-dom';
 import Test from './test';
 import UserList from './components/User/UserList';
 import UserCreate from './components/User/UserCreate';
@@ -15,7 +15,8 @@ import Rt, { route } from './components/Test/route';
 
 export function AllRoutes() {
 
-  const {currentUser} =useAuth();
+  const { currentUser } = useAuth();
+
 
   return useRoutes([
     { path: '/', element: <Home /> },
@@ -23,7 +24,7 @@ export function AllRoutes() {
     { path: '/register', element: <Register /> },
     {
       path: '/dashboard/:id',
-      element: currentUser ? <Dashboard /> : <Login />,
+      element: currentUser ? <Dashboard /> : <Navigate to="/login" />,
       children: [
         { path: '/dashboard/:id/user/*', element: <UserRoutes /> }
       ]

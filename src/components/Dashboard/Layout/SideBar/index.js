@@ -12,7 +12,6 @@ const SideBar = () => {
 
     const { currentUser } = useAuth();
     const name = currentUser ? JSON.stringify(currentUser.displayName) : null;
-    console.log(currentUser.uid);
     const classes = useStyles();
 
     return (
@@ -20,9 +19,9 @@ const SideBar = () => {
             <div className={classes.sideBar}>
                 <h4>{JSON.parse(name)}</h4>
                 <ButtonGroup orientation="vertical" aria-label="vertical outlined button group" variant="contained">
-                    <NavLink to="/" target="_blank" className={`nav-link px-0 align-middle ${classes.item}`}>
+                    <Link to="/" target="_blank" className={`nav-link px-0 align-middle ${classes.item}`}>
                         <HomeIcon /> Home
-                    </NavLink>
+                    </Link>
                 </ButtonGroup>
                 <ButtonGroup orientation="vertical" aria-label="vertical contained button group" variant="contained" >
                     <NavLink to={`/dashboard/${currentUser.uid}`} style={({ isActive }) => ({ color: isActive ? 'white' : '' })} className={`nav-link px-0 align-middle ${classes.item}`} end>
