@@ -15,17 +15,18 @@ import Rt, { route } from './components/Test/route';
 
 export function AllRoutes() {
 
+  const {currentUser} =useAuth();
+
   return useRoutes([
     { path: '/', element: <Home /> },
     { path: '/login', element: <Login /> },
     { path: '/register', element: <Register /> },
     {
-      path: '/dashboard',
-      element: <Dashboard />,
+      path: '/dashboard/:id',
+      element: currentUser ? <Dashboard /> : <Login />,
       children: [
-        { path: '/dashboard/user/*', element: <UserRoutes /> }
+        { path: '/dashboard/:id/user/*', element: <UserRoutes /> }
       ]
-
     },
   ])
 

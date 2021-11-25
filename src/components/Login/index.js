@@ -2,17 +2,11 @@ import React from 'react';
 import logo from '../../logo-1.png';
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from '../../contexts/Auth';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import TextField from '@mui/material/TextField';
-
-
 
 function Login() {
 
     const history = useNavigate();
     const location = useLocation();
-    console.log(location.pathname);
     require('./Login.css');
     const { login, signInGoogle, signInFB } = useAuth();
 
@@ -23,7 +17,7 @@ function Login() {
         const email = data.get('email');
         const password = data.get('password');
 
-        login(email, password).then(() => history('/dashboard')).catch((error) => alert(error.message))
+        login(email, password).then((response) => history(`/dashboard/${response.user.uid}`)).catch((error) => alert(error.message))
     }
 
     function loginWithGoogle() {
@@ -32,12 +26,6 @@ function Login() {
 
     return (
         <>
-            {/* <div style={{ background: "red", width: "100%", height: "100%" }}>
-                dfsdf
-            </div> */}
-
-
-
             <div className="container-fluid">
                 <div className="row main-content text-center">
                     <div className="col-md-4 text-center company__info">

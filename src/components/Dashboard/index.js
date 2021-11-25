@@ -11,7 +11,7 @@ import useStyles, { theme } from './style';
 
 const Dashboard = () => {
 
-    const { logout } = useAuth();
+    const { currentUser, logout } = useAuth();
     const classes = useStyles();
     const history = useNavigate();
     const location = useLocation();
@@ -25,7 +25,7 @@ const Dashboard = () => {
             <SideBar />
             <div className={classes.contain}>
                 <Header />
-                {location.pathname === '/dashboard' ? <Body /> : <Outlet />}
+                {location.pathname === `/dashboard/${currentUser.uid}` ? <Body /> : <Outlet />}
             </div>
             <CssBaseline />
             {/* <div className={classes.contain}>

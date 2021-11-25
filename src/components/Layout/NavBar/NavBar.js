@@ -25,7 +25,7 @@ const NavBar = () => {
                 <Link to="/" className="nav-link text-white">Home</Link>
               </li>
               {currentUser && <li className="nav-item">
-                <Link to="/dashboard" className="nav-link text-white">Profile</Link>
+                <Link to={`/dashboard/${currentUser.uid}`} className="nav-link text-white">Profile</Link>
               </li>}
 
               {currentUser && <li className="nav-item">

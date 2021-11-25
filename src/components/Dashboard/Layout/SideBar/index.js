@@ -12,6 +12,7 @@ const SideBar = () => {
 
     const { currentUser } = useAuth();
     const name = currentUser ? JSON.stringify(currentUser.displayName) : null;
+    console.log(currentUser.uid);
     const classes = useStyles();
 
     return (
@@ -24,12 +25,12 @@ const SideBar = () => {
                     </NavLink>
                 </ButtonGroup>
                 <ButtonGroup orientation="vertical" aria-label="vertical contained button group" variant="contained" >
-                    <NavLink to="/dashboard" style={({ isActive }) => ({ color: isActive ? 'white' : '' })} className={`nav-link px-0 align-middle ${classes.item}`} end>
+                    <NavLink to={`/dashboard/${currentUser.uid}`} style={({ isActive }) => ({ color: isActive ? 'white' : '' })} className={`nav-link px-0 align-middle ${classes.item}`} end>
                         <DashboardIcon />Dashboard
                     </NavLink>
                 </ButtonGroup>
                 <ButtonGroup orientation="vertical" aria-label="vertical contained button group" variant="contained" >
-                    <NavLink to="/dashboard/user" style={({ isActive }) => ({ color: isActive ? 'white' : '' })} className={`nav-link px-0 align-middle ${classes.item}`}>
+                    <NavLink to={`/dashboard/${currentUser.uid}/user`} style={({ isActive }) => ({ color: isActive ? 'white' : '' })} className={`nav-link px-0 align-middle ${classes.item}`}>
                         <GroupIcon />Users</NavLink>
                 </ButtonGroup>
                 <ButtonGroup orientation="vertical" aria-label="vertical contained button group" variant="contained" >
