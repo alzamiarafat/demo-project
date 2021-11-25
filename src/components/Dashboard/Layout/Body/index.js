@@ -1,19 +1,8 @@
 import React from 'react';
 import GroupIcon from '@mui/icons-material/Group';
-import {
-    Card,
-    Typography 
-} from '@mui/material';
-
-import {
-    Paper
-} from '@mui/material';
-
-import bodyStyle from './style';
-
+import { Card, Typography, Paper } from '@mui/material';
 
 export default function index() {
-    const classes = bodyStyle()
     return (
         <>
             <Paper elevation={5} sx={{ marginTop: "20px" }}>

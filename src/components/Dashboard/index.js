@@ -2,18 +2,19 @@ import { useAuth } from '../../contexts/Auth';
 // import SlideBar from '../Layout/SideBar/SideBar';
 import SideBar from './Layout/SideBar/index';
 import Header from './Layout/Header/index'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Outlet, useLocation } from "react-router-dom";
 import { createTheme, ThemeProvider, CssBaseline } from '@material-ui/core';
 import Body from './Layout/Body/index'
 import useStyles, { theme } from './style';
 
 
 
-function Dashboard() {
+const Dashboard = () => {
 
     const { logout } = useAuth();
     const classes = useStyles();
     const history = useNavigate();
+    const location = useLocation();
 
     function signOut() {
         logout().then(() => history('/login'));
@@ -24,7 +25,7 @@ function Dashboard() {
             <SideBar />
             <div className={classes.contain}>
                 <Header />
-                <Body />
+                {location.pathname === '/dashboard' ? <Body /> : <Outlet />}
             </div>
             <CssBaseline />
             {/* <div className={classes.contain}>

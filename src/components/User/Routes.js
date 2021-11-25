@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
-import { Route, Routes, Link } from 'react-router-dom';
-// import UserCreate from './components/User/UserCreate';
+import React from 'react';
+import { useRoutes } from 'react-router-dom';
+import UserList from './UserList'
+import UserCreate from './UserCreate';
 
+export default function UserRoutes() {
 
-export class routes extends Component {
-    render() {
-        return (
-            <>
-            <h1>gfrg</h1>
-                <Routes>
-                    {/* <Route path="create" element={<UserCreate />} /> */}
-                </Routes>
-            </>
-        )
-    }
-}
+  return useRoutes([
+    {
+      path: '/',
+      element: <UserList />,
+    },
+    {
+      path: '/create',
+      element: <UserCreate />,
+    },
+  ])
+};
 
-export default routes

@@ -45,7 +45,7 @@ function UserCreate() {
         axios.post(`https://6190abddf6bf450017484c7d.mockapi.io/fakeData`, { username, email, password }).then(() => {
             swal("Good job!", "You clicked the button!", "success").then(() => {
                 event.target.reset();
-                history('/users')
+                history('/dashboard/user')
             });
         })
     }

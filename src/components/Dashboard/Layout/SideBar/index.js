@@ -29,7 +29,7 @@ const SideBar = () => {
                     </NavLink>
                 </ButtonGroup>
                 <ButtonGroup orientation="vertical"  aria-label="vertical contained button group" variant="text" >
-                    <NavLink style={{color: "black"}} to="/users" className="nav-link align-middle px-0">
+                    <NavLink style={{color: "black"}} to="/dashboard/user" className="nav-link align-middle px-0">
                         <GroupIcon />Users</NavLink>
                 </ButtonGroup>
                 <ButtonGroup orientation="vertical"  aria-label="vertical contained button group" variant="text" >
