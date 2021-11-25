@@ -23,11 +23,11 @@ function Login() {
         const email = data.get('email');
         const password = data.get('password');
 
-        login(email, password).then(() => history(location.state.form)).catch((error) => alert(error.message))
+        login(email, password).then(() => history('/dashboard')).catch((error) => alert(error.message))
     }
 
     function loginWithGoogle() {
-        signInGoogle().then(() => history(location.state?.form ?? '/dashboard')).catch((error) => alert(error.message))
+        signInGoogle().then(() => history('/dashboard')).catch((error) => alert(error.message))
     }
 
     return (

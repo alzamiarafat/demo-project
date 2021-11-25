@@ -16,15 +16,14 @@ import Rt, { route } from './components/Test/route';
 export function AllRoutes() {
 
   return useRoutes([
-    {
-      path: '/',
-      element: <Home />
-    },
+    { path: '/', element: <Home /> },
+    { path: '/login', element: <Login /> },
+    { path: '/register', element: <Register /> },
     {
       path: '/dashboard',
       element: <Dashboard />,
       children: [
-        {path: '/dashboard/user/*', element: <UserRoutes />}
+        { path: '/dashboard/user/*', element: <UserRoutes /> }
       ]
 
     },

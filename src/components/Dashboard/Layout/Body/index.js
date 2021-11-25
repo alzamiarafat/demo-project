@@ -1,6 +1,7 @@
 import React from 'react';
-import GroupIcon from '@mui/icons-material/Group';
 import { Card, Typography, Paper } from '@mui/material';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+
 
 export default function index() {
     return (
@@ -8,7 +9,7 @@ export default function index() {
             <Paper elevation={5} sx={{ marginTop: "20px" }}>
                 <div>
                     <Card>
-                        <h4><GroupIcon /> Users</h4>
+                        <h4><DashboardIcon /> Dashboard</h4>
                     </Card>
                     <div>
                         <Typography variant="h1" component="div">

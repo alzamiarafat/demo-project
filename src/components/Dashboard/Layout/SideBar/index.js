@@ -18,22 +18,25 @@ const SideBar = () => {
         <>
             <div className={classes.sideBar}>
                 <h4>{JSON.parse(name)}</h4>
-                <ButtonGroup orientation="vertical"  aria-label="vertical outlined button group">
-                    <NavLink style={{color: "black"}} to="/" target="_blank" className="nav-link align-middle px-0">
+                <ButtonGroup orientation="vertical" aria-label="vertical outlined button group" variant="contained">
+                    <NavLink to="/" target="_blank" className={`nav-link px-0 align-middle ${classes.item}`}>
                         <HomeIcon /> Home
                     </NavLink>
                 </ButtonGroup>
-                <ButtonGroup orientation="vertical"  aria-label="vertical contained button group" variant="contained" >
-                    <NavLink style={{color: "black"}} to="/dashboard" data-bs-toggle="collapse" className="nav-link px-0 align-middle">
+                <ButtonGroup orientation="vertical" aria-label="vertical contained button group" variant="contained" >
+                    <NavLink to="/dashboard" style={({ isActive }) => ({ color: isActive ? 'white' : '' })} className={`nav-link px-0 align-middle ${classes.item}`} end>
                         <DashboardIcon />Dashboard
                     </NavLink>
                 </ButtonGroup>
-                <ButtonGroup orientation="vertical"  aria-label="vertical contained button group" variant="text" >
-                    <NavLink style={{color: "black"}} to="/dashboard/user" className="nav-link align-middle px-0">
+                <ButtonGroup orientation="vertical" aria-label="vertical contained button group" variant="contained" >
+                    <NavLink to="/dashboard/user" style={({ isActive }) => ({ color: isActive ? 'white' : '' })} className={`nav-link px-0 align-middle ${classes.item}`}>
                         <GroupIcon />Users</NavLink>
                 </ButtonGroup>
-                <ButtonGroup orientation="vertical"  aria-label="vertical contained button group" variant="text" >
-                    <Link style={{color: "black"}} to="/test" className="nav-link align-middle px-0"><i className="fas fa-certificate"></i> <span className="ms-1 d-none d-sm-inline">Test Item</span></Link>
+                <ButtonGroup orientation="vertical" aria-label="vertical contained button group" variant="contained" >
+                    <Link to="/test" className={`nav-link px-0 align-middle ${classes.item}`}>
+                        <i className="fas fa-certificate"></i>
+                        <span className="ms-1 d-none d-sm-inline">Test Item</span>
+                    </Link>
                 </ButtonGroup>
             </div>
         </>

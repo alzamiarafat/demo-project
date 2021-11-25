@@ -10,12 +10,14 @@ const useStyles = makeStyles({
         position: "absolute", 
         textAlign: "center", 
         flexDirection: "column", 
-        left: "0px",
+        padding: "100px 10px 100px 10px",
     },
-    contain: {
-        paddingLeft: "250px",
-        width: "100%"
-
+    item: {
+        color: "black",
+        padding: "15px",
+        '&:hover': {
+            color: "white"
+        }
     }
 });
 
