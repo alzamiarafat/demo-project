@@ -2,6 +2,8 @@ import React from 'react';
 import logo from '../../logo-1.png';
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from '../../contexts/Auth';
+import { useDispatch } from 'react-redux';
+import { LoginAction } from '../../redux/authAction';
 
 function Login() {
 
@@ -9,19 +11,24 @@ function Login() {
     const location = useLocation();
     require('./Login.css');
     const { login, signInGoogle, signInFB } = useAuth();
+    const dispatch = useDispatch();
 
     function formSubmit(event) {
 
-        event.preventDefault();
-        const data = new FormData(event.target);
-        const email = data.get('email');
-        const password = data.get('password');
+        alert('dsfds');
+        dispatch(LoginAction("fsdf@gmail.com"))
 
-        login(email, password).then((response) => history(`/dashboard/${response.user.uid}`)).catch((error) => alert(error.message))
+        // event.preventDefault();
+        // const data = new FormData(event.target);
+        // const email = data.get('email');
+        // const password = data.get('password');
+
+        // login(email, password).then((response) => history(`/dashboard/${response.user.uid}`)).catch((error) => alert(error.message))
+        // login(email, password).then(()=>dispatch(LoginAction(email))).catch((error) => alert(error.message))
     }
 
     function loginWithGoogle() {
-        signInGoogle().then(() => history('/dashboard')).catch((error) => alert(error.message))
+        signInGoogle().then((response) => history(`/dashboard/${response.user.uid}`)).catch((error) => alert(error.message))
     }
 
     return (
@@ -52,7 +59,7 @@ function Login() {
                                             Remember me
                                         </label>
                                     </div>
-                                    <input type="submit" value="Submit" className="btn login-btn" />
+                                    <p onClick={formSubmit} value="Submit" className="btn login-btn" />
                                 </form>
                             </div>
                             <div className="row">
