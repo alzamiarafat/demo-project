@@ -11,11 +11,14 @@ import UserRoutes from './components/User/Routes'
 import { useAuth } from './contexts/Auth';
 // import List from './components/Test/list';
 import Rt, { route } from './components/Test/route';
+import { useSelector } from 'react-redux';
+
 
 
 export function AllRoutes() {
 
   const { currentUser } = useAuth();
+  const isLogged = useSelector(state => state.auth.isLogged)
 
 
   return useRoutes([
@@ -24,7 +27,7 @@ export function AllRoutes() {
     { path: '/register', element: <Register /> },
     {
       path: '/dashboard/:id',
-      element: currentUser ? <Dashboard /> : <Navigate to="/login" />,
+      element: isLogged ? <Dashboard /> : <Navigate to="/login" />,
       children: [
         { path: '/dashboard/:id/user/*', element: <UserRoutes /> }
       ]

@@ -22,6 +22,10 @@ import React from 'react';
 import useStyles from './style';
 import { useAuth } from '../../../../contexts/Auth';
 import { useNavigate } from 'react-router';
+import { useDispatch } from 'react-redux';
+import { LogoutAction } from '../../../../redux/authAction';
+
+
 
 const Header = () => {
     const classes = useStyles();
@@ -37,9 +41,14 @@ const Header = () => {
     const accountSettingClose = () => {
         setAnchorEl(null);
     }
+    
+    const dispatch = useDispatch();
 
     const signOut = () => {
-        logout().then(() => history('/login'));
+        logout().then(() => {
+            history('/login')
+            dispatch(LogoutAction())
+        });
     }
 
     return (

@@ -14,17 +14,15 @@ function Login() {
     const dispatch = useDispatch();
 
     function formSubmit(event) {
+        event.preventDefault();
+        const data = new FormData(event.target);
+        const email = data.get('email');
+        const password = data.get('password');
 
-        alert('dsfds');
-        dispatch(LoginAction("fsdf@gmail.com"))
-
-        // event.preventDefault();
-        // const data = new FormData(event.target);
-        // const email = data.get('email');
-        // const password = data.get('password');
-
-        // login(email, password).then((response) => history(`/dashboard/${response.user.uid}`)).catch((error) => alert(error.message))
-        // login(email, password).then(()=>dispatch(LoginAction(email))).catch((error) => alert(error.message))
+        login(email, password).then((response) => {
+            dispatch(LoginAction(response.user));
+            history(`/dashboard/${response.user.uid}`);
+        }).catch((error) => alert(error.message))
     }
 
     function loginWithGoogle() {
@@ -59,7 +57,7 @@ function Login() {
                                             Remember me
                                         </label>
                                     </div>
-                                    <p onClick={formSubmit} value="Submit" className="btn login-btn" />
+                                    <input type="submit" value="Submit" className="btn login-btn" />
                                 </form>
                             </div>
                             <div className="row">

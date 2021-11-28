@@ -7,29 +7,33 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import HomeIcon from '@mui/icons-material/Home';
 import GroupIcon from '@mui/icons-material/Group';
+import { useSelector } from 'react-redux';
+
 
 const SideBar = () => {
 
-    const { currentUser } = useAuth();
-    const name = currentUser ? JSON.stringify(currentUser.displayName) : null;
+    // const { currentUser } = useAuth();
+    // const name = currentUser ? JSON.stringify(currentUser.displayName) : null;
     const classes = useStyles();
+    const user = useSelector(state => state.auth.user)
+
 
     return (
         <>
             <div className={classes.sideBar}>
-                <h4>{JSON.parse(name)}</h4>
+                <h4>{user.displayName}</h4>
                 <ButtonGroup orientation="vertical" aria-label="vertical outlined button group" variant="contained">
                     <Link to="/" target="_blank" className={`nav-link px-0 align-middle ${classes.item}`}>
                         <HomeIcon /> Home
                     </Link>
                 </ButtonGroup>
                 <ButtonGroup orientation="vertical" aria-label="vertical contained button group" variant="contained" >
-                    <NavLink to={`/dashboard/${currentUser.uid}`} style={({ isActive }) => ({ color: isActive ? 'white' : '' })} className={`nav-link px-0 align-middle ${classes.item}`} end>
+                    <NavLink to={`/dashboard/${user.uid}`} style={({ isActive }) => ({ color: isActive ? 'white' : '' })} className={`nav-link px-0 align-middle ${classes.item}`} end>
                         <DashboardIcon />Dashboard
                     </NavLink>
                 </ButtonGroup>
                 <ButtonGroup orientation="vertical" aria-label="vertical contained button group" variant="contained" >
-                    <NavLink to={`/dashboard/${currentUser.uid}/user`} style={({ isActive }) => ({ color: isActive ? 'white' : '' })} className={`nav-link px-0 align-middle ${classes.item}`}>
+                    <NavLink to={`/dashboard/${user.uid}/user`} style={({ isActive }) => ({ color: isActive ? 'white' : '' })} className={`nav-link px-0 align-middle ${classes.item}`}>
                         <GroupIcon />Users</NavLink>
                 </ButtonGroup>
                 <ButtonGroup orientation="vertical" aria-label="vertical contained button group" variant="contained" >

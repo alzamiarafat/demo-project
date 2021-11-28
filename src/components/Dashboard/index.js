@@ -6,6 +6,8 @@ import { useNavigate, Outlet, useLocation, Navigate } from "react-router-dom";
 import { createTheme, ThemeProvider, CssBaseline } from '@material-ui/core';
 import Body from './Layout/Body/index'
 import useStyles, { theme } from './style';
+import { useSelector } from 'react-redux';
+
 
 
 
@@ -15,10 +17,8 @@ const Dashboard = () => {
     const classes = useStyles();
     const history = useNavigate();
     const location = useLocation();
+    const user = useSelector(state => state.auth.user)
 
-    function signOut() {
-        logout().then(() => history('/login'));
-    }
 
     return (
         <>
@@ -26,7 +26,7 @@ const Dashboard = () => {
                 <SideBar />
                 <div className={classes.contain}>
                     <Header />
-                    {location.pathname === `/dashboard/${currentUser.uid}` ? <Body /> : <Outlet />}
+                    {location.pathname === `/dashboard/${user.uid}` ? <Body /> : <Outlet />}
                 </div>
                 <CssBaseline />
                 {/* <div className={classes.contain}>
